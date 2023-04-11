@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=`">
+    <title>BG_Calculator</title>
+    <style>
+        body {
+
+            image-orientation: url(background.jpg);
+        }
+
+     .box_container::before { 
+            content: "";
+            position: absolute;
+            background: url(background.jpg)no-repeat center center/cover;
+            z-index: -1;
+            opacity: 0.89;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box_container {
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            padding-top: 47px;
+            flex-wrap: wrap;
+        }
+
+
+
+        .container {
+            width: 70px;
+            height: 70px;
+            margin: 20px;
+            outline: none;
+            background: rgb(214, 214, 214);
+            box-shadow: 5px 5px 10px #b6a9a9;
+            border-radius: 50%;
+            transition: 0.2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+/* 
+        .navbar {
+            display: flex;
+            width: 100%;
+            font-family: cursive;
+            color: white;
+            justify-content: center;
+            height: 55px;
+            font-size: 25px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+
+        .navbar li {
+            list-style: none;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            padding: 10px;
+            color: white;
+        }
+
+        .navbar::before {
+            content: "";
+            background-color: black;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.4;
+            width: 100%;
+            height: 55px;
+        }
+
+        .navbar li a:hover {
+
+
+            font-family: cursive;
+            color: green;
+
+
+
+        } */
+
+        /* here applied totally calculator css*/
+        .Mycalculator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 300px;
+            height: 400px;
+            background-color: rgb(214, 214, 214);
+            ;
+            position: absolute;
+            top: 20%;
+            left: 38%;
+            border-radius: 10px;
+
+        }
+
+        input[type="text"] {
+            outline: none;
+            width: 191px;
+            margin: 7px;
+            padding: 5px;
+            /* border-radius: 20px; */
+            font-size: 18px;
+            border-radius: 5px;
+
+        }
+
+        input::placeholder {
+            text-align: center;
+            color:green;
+            font-size: 18px;
+        }
+
+        button {
+            border-radius: 5px;
+            width: 50px;
+            height: 40px;
+            /* margin: 5px; */
+            outline: none;
+            background: rgb(214, 214, 214);
+            box-shadow: 5px 5px 10px #b6a9a9;
+            /* border-radius: 50%; */
+            transition: 0.2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: cursive;
+            font-weight: bolder;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="navbar">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Awesome Background</a>
+        </li>
+        <li>
+            <a href="#">Icon</a>
+        </li>
+        <li>
+            <a href="#">Hacker Photos</a>
+        </li>
+        <li>
+            <a href="#">Service</a>
+        </li>
+        <li>
+            <a href="#">About</a>
+        </li>
+    </nav> -->
+    <section class="Mycalculator">
+        <div class="Responsive_calculator">
+            <h1>CodeWithBG Calculator</h1>
+            <input type="text" name="screen" id="screen" placeholder="Coding Is Life">
+            <table>
+                <tr>
+                    <td><button>(</button></td>
+                    <td><button>)</button></td>
+                    <td><button>C</button></td>
+                    <td><button>/</button></td>
+                </tr>
+                <tr>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button>X</button></td>
+                </tr>
+                <tr>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button>-</button></td>
+                </tr>
+                <tr>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    <td><button>+</button></td>
+                </tr>
+                <tr>
+                    <td><button>0</button></td>
+                    <td><button>.</button></td>
+                    <td><button>%</button></td>
+                    <td><button>=</button></td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+    <!-- javascript applied here -->
+
+    <script>
+        let screen = document.getElementById('screen');
+        buttons = document.querySelectorAll('button');
+        let screenValue = '';
+        for (item of buttons) {
+            item.addEventListener('click', (e) => {
+                buttonText = e.target.innerText;
+                console.log('button text is', buttonText);
+                if (buttonText == 'X') {
+                    buttonText = '*';
+                    screenValue += buttonText;
+                    screen.value = screenValue;
+                }
+                else if (buttonText == 'C') {
+                    screenValue = "";
+                    screen.value = screenValue;
+
+                }
+                else if (buttonText == '=') {
+                    screen.value = eval(screenValue);
+                }
+                else {
+                    screenValue += buttonText;
+                    screen.value = screenValue;
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
